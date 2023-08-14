@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Clientes</title>
+</head>
+<body>
+    <h1>Clientes Registrados:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <th>{{ cliente.username }}</th>
+                <th>{{ cliente.email }}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
