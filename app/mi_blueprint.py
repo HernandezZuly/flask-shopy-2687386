@@ -1,4 +1,4 @@
-from flask import Blueprint 
+from flask import Blueprint
 mi_blueprint = Blueprint ('mi_blueprint',
                         __name__,
                         url_prefix = "/modulo")
