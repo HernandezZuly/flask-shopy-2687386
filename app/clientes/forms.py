@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, EmailField
-from wtforms.validators import InputRequired, Email
+from wtforms.validators import InputRequired, Email 
 
 class ClientForm():
     username = StringField("Ingrese el nombre de usuario: ",
