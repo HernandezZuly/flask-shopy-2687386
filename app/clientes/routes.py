@@ -1,9 +1,11 @@
 from flask import render_template, redirect, flash
+from flask_login import login_required
 from app.clientes import clientes
 import app
 from .forms import NewClientForm, EditClientForm
 
 @clientes.route('/createCli', methods = ['GET', 'POST'])
+@login_required
 def crear():
     p = app.models.Cliente()
     form = NewClientForm()
@@ -17,12 +19,14 @@ def crear():
                             form = form)
 
 @clientes.route('/listarCli')
+@login_required
 def listar():
     clientes = app.models.Cliente.query.all()
     return render_template("listarCli.html",
                             clientes = clientes)
 
 @clientes.route('/editarCli/<cliente_id>', methods = ['GET', 'POST'])
+@login_required
 def editar(cliente_id):
     p = app.models.Cliente.query.get(cliente_id)
     form = EditClientForm(obj = p)
@@ -35,6 +39,7 @@ def editar(cliente_id):
                             form = form)
 
 @clientes.route('/eliminarCli/<cliente_id>')
+@login_required
 def eliminar(cliente_id):
     p = app.models.Cliente.query.get(cliente_id)
     app.db.session.delete(p)

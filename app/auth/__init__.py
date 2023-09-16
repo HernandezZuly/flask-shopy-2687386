@@ -4,4 +4,4 @@ auth = Blueprint('auth',
                     url_prefix = '/auth',
                     template_folder = 'templates')
 
-from . import routes 
+from . import routes
